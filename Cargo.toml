@@ -1,0 +1,6 @@
+[package]
+name = "eport"
+version = "0.1.0"
+authors = ["Graeme Coupar <grambo@grambo.me.uk>"]
+
+[dependencies]
