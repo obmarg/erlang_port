@@ -11,6 +11,8 @@ all APIs might be changed.
 
 ## Unreleased - yyyy-mm-dd
 
+## v0.1.0 - 2018-10-13
+
 The initial release.
 
 ### New Features
