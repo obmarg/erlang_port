@@ -1,3 +1,6 @@
+//! erlang_port helps make writing Erlang/Elixir ports in Rust easier.
+//!
+
 extern crate byteorder;
 extern crate serde;
 extern crate serde_eetf;
