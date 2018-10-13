@@ -2,6 +2,16 @@
 name = "erlang_port"
 version = "0.1.0"
 authors = ["Graeme Coupar <grambo@grambo.me.uk>"]
+description = "Helper library for writing Elixir & Erlang ports in rust"
+homepage = "https://github.com/obmarg/erlang_port"
+repository = "https://github.com/obmarg/erlang_port"
+readme = "README.md"
+keywords = ["erlang", "elixir", "port", "interop"]
+license = "MIT"
+
+[badges]
+travis-ci = { "repository" = "obmarg/erlang_port" }
+maintenance = { status = "experimental" }
 
 [dependencies]
 byteorder = "1"
