@@ -11,6 +11,8 @@ all APIs might be changed.
 
 ## Unreleased - yyyy-mm-dd
 
+## v0.2.0 - 2018-10-14
+
 ### Breaking Changes
 
 - Completely refactored the interface to use structs and traits rather than top

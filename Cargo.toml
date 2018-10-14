@@ -1,6 +1,6 @@
 [package]
 name = "erlang_port"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Graeme Coupar <grambo@grambo.me.uk>"]
 description = "Helper library for writing Elixir & Erlang ports in rust"
 homepage = "https://github.com/obmarg/erlang_port"
