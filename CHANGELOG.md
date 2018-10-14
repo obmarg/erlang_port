@@ -11,6 +11,17 @@ all APIs might be changed.
 
 ## Unreleased - yyyy-mm-dd
 
+### Breaking Changes
+
+- Completely refactored the interface to use structs and traits rather than top
+  level functions. This should allow for users to implement their own protocols
+  over traits in addition to the hard-coded 4 byte packet reading/writing that
+  we had before.
+
+### New Features
+
+- We now support writing ports that are opened in nouse_stdio mode.
+
 ## v0.1.0 - 2018-10-13
 
 The initial release.
