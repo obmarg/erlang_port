@@ -1,5 +1,63 @@
 //! erlang_port helps make writing Erlang/Elixir ports in Rust easier.
 //!
+//! Makes use of the `serde_eetf` crate to serialize/deserialize rust datatypes
+//! into erlang external term format, suitable for passing to/receiving from
+//! `binary_to_term`/`term_to_binary`
+//!
+//! Assuming you are starting your port in packet mode, it's recommended that
+//! you use the `stdio` or `nouse_stdio` functions inside the `main` fuction of
+//! your application to create an `IOPort`. You can then use the `sender` and
+//! `receiver` properties on that `IOPort` to communicate with Erlang/Elixir.
+//!
+//! For example, if you create the following rust program that reads strings
+//! from a port and returns them uppercased:
+//!
+//! ```rust,no_run
+//! fn lower(mut s: String) -> Result<String, String> {
+//!     s.make_ascii_uppercase();
+//!     Ok(s)
+//! }
+//!
+//! fn main() {
+//!    use erlang_port::{PortReceive, PortSend};
+//!
+//!   let mut port = unsafe {
+//!       use erlang_port::PacketSize;
+//!       erlang_port::nouse_stdio(PacketSize::Four)
+//!   };
+//!
+//!   for string_in in port.receiver.iter() {
+//!       let result = lower(string_in);
+//!
+//!       port.sender.reply(result);
+//!   }
+//! }
+//! ```
+//!
+//! Then you can call into this port from Elixir:
+//!
+//! ```elixir
+//! iex> port =
+//! ...>   Port.open({:spawn_executable, port_path}, [
+//! ...>       {:packet, 4},
+//! ...>       :nouse_stdio,
+//! ...>       :binary,
+//! ...>       :exit_status
+//! ...>   ])
+//! #Port<0.1444>
+//! iex> Port.command(port, :erlang.term_to_binary("hello"))
+//! true
+//! iex> receive do
+//! ...>   {^port, {:data, binary}} ->
+//! ...>     IO.puts(:erlang.binary_to_term(binary))
+//! ...> end
+//! "HELLO"
+//! :ok
+//! ```
+//!
+//! If you wish to implement a line-based port or a custom port protocol (using
+//! the :stream option) you can do so by implementing the
+//! `PortSend`/`PortReceive` traits.
 
 extern crate byteorder;
 extern crate serde;

@@ -22,6 +22,10 @@ Add erlang_port to your `Cargo.toml`
 erlang_port = "0"
 ```
 
+### Using
+
+Please see [the documentation](https://docs.rs/erlang_port/) for usage & examples.
+
 ## Running the tests
 
 ```
