@@ -13,7 +13,7 @@
 //! from a port and returns them uppercased:
 //!
 //! ```rust,no_run
-//! fn lower(mut s: String) -> Result<String, String> {
+//! fn upcase(mut s: String) -> Result<String, String> {
 //!     s.make_ascii_uppercase();
 //!     Ok(s)
 //! }
@@ -27,7 +27,7 @@
 //!   };
 //!
 //!   for string_in in port.receiver.iter() {
-//!       let result = lower(string_in);
+//!       let result = upcase(string_in);
 //!
 //!       port.sender.reply(result);
 //!   }

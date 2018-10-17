@@ -11,6 +11,10 @@ all APIs might be changed.
 
 ## Unreleased - yyyy-mm-dd
 
+## Bug Fixes
+
+- Fixed a minor issue in the main module doccomment.
+
 ## v0.2.0 - 2018-10-14
 
 ### Breaking Changes
